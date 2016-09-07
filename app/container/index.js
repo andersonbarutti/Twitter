@@ -24,7 +24,7 @@ export default class Index extends Component {
     return (
       <View
        style={{flex:1}}>
-       <StatusBar  barStyle="light-content" />
+       <StatusBar hidden={true} barStyle="light-content" />
       <Provider store={store}>
         <Components/>
       </Provider>

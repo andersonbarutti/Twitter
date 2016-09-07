@@ -7,13 +7,10 @@
   },
   "dependencies": {
     "react": "15.3.1",
-    "react-native": "^0.32.0",
-    "react-native-icons": "^0.7.1",
-    "react-native-invertible-scroll-view": "^1.0.0",
-    "react-native-scrollable-tab-view": "^0.5.5",
+    "react-native": "^0.32.1",
     "react-native-vector-icons": "^2.1.0",
-    "react-redux": "4.4.0",
-    "redux": "3.3.1",
-    "redux-thunk": "1.0.3"
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
   }
 }

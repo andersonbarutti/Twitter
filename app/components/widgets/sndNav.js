@@ -29,7 +29,7 @@ export default class SndNav extends Component {
     return (
       <View style={{height:50, backgroundColor:'#222', justifyContent:'space-around', alignItems:'center', flexDirection:'row'}}>
       <View style={{flex:2}}>
-      <Text style={{color:'#fff', fontWeight:'900', fontSize:12, marginLeft:12}}>RIHANNA</Text>
+      <Text style={{color:'#fff', fontWeight:'900', fontSize:14, marginLeft:10}}>RIHANNA</Text>
       </View>
       <ScrollView horizontal ={true} style={{flex:5}}>
       <TouchableOpacity style={styles.row}>

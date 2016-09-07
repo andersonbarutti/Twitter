@@ -22,11 +22,11 @@ export default class Login extends Component {
     return (
       <Image style={styles.container} resizeMode="stretch" source={require('../images/party.jpg')}>
       <View style={{flex:8, alignItems:'flex-end', justifyContent:'center'}}>
-      <View style={{width:((width/2) + 40), padding:5, borderTopLeftRadius:40, borderBottomLeftRadius:40, flexDirection:'row', backgroundColor:'#55acef', alignItems:'center'}}>
+      <View style={{width:((width/2) + 40), padding:5, borderTopLeftRadius:40, borderBottomLeftRadius:40, flexDirection:'row', backgroundColor:'rgba(0,0,0,0.5)', alignItems:'center'}}>
       <TouchableOpacity style={styles.circle}>
-      <Image source={require('../images/bird.png')} resizeMode="contain" style={{height:40, width:40}} />
+      <Image source={require('../images/bird.png')} resizeMode="contain" style={{height:30, width:30}} />
       </TouchableOpacity>
-      <Text style={{color:'#fff', fontSize:20, margin:10}}>Get Started</Text>
+      <Text style={{color:'#fff', fontSize:19, margin:12}}>Get Started</Text>
       </View>
       <Image source={require('../images/icon.png')} resizeMode="contain" style={{height:50, width:110, margin:20, alignSelf:'center'}} />
       </View>
@@ -52,12 +52,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   circle:{
-    backgroundColor:'#3e9cdc',
-    height:80,
-    width:80,
+    backgroundColor:'rgba(85,172,239,0.2)',
+    height:60,
+    width:60,
     alignItems:'center',
     justifyContent:'center',
-    borderRadius:40,
+    borderRadius:30,
 
   },
   welcome: {

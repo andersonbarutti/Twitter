@@ -42,7 +42,7 @@ var music = [
   views:174842,
   selected: false
 },{
-  name:"Loveeeeee Song",
+  name:"Lovee Song",
   views:74849,
   selected: false
 },
@@ -90,14 +90,14 @@ export default class Visualize extends Component {
 
   componentDidMount() {
     setInterval(() =>
-    {this.animation()}, 6000 )
+    {this.animation()}, 8000 )
   }
 
   animation(){
     if(!hasAnimated){
       hasAnimated = true
       Animated.timing(this._animatedValue, {
-            toValue: 200,
+            toValue: 250,
             duration: 3000
         }).start(); 
 
@@ -113,11 +113,22 @@ export default class Visualize extends Component {
 
   eachNode(x){
     val = val -10;
-    rotateVal = rotateVal + 36;
+    rotateVal = rotateVal + 32;
     var rotateValS = rotateVal + "deg";
-    return(<View style ={{position:'absolute', flexDirection:'row', top:100, left:100, width:10, height:50, transform: [{rotate: rotateValS}]}}>
-      <Text style ={{color:"#fff", textAlign:'right'}}>A</Text>
-   </View>)   
+    if(!x.selected){
+        return(<View style ={{position:'absolute', flexDirection:'row', top:325, left:110, width:140, height:50, transform: [{rotate: rotateValS}]}}>
+          <View style ={{marginLeft:140, flexDirection:'row'}}>
+          <Text style ={{color:"#fff", transform: [{rotate: "181deg" }]}}>{x.name}</Text>
+          <Text style ={{color:"#00b6e9", transform: [{rotate: "181deg" }]}}>( {x.views} )</Text>
+          </View>
+       </View>)   }else{
+        return(<View style ={{position:'absolute', flexDirection:'row', top:350, left:110, width:140, height:50, transform: [{rotate: rotateValS}]}}>
+          <View style ={{marginLeft:140, flexDirection:'row'}}>
+          <Text style ={{color:"#fff", fontWeight:'600', fontSize:20,  transform: [{rotate: "181deg" }]}}>{x.name}</Text>
+          <Text style ={{ fontWeight:'500', color:'#00b6e9', fontSize:20,transform: [{rotate: "181deg" }]}}>( {x.views} )</Text>
+          </View>
+       </View>)   }
+
   }
 
   render() {
@@ -130,17 +141,17 @@ export default class Visualize extends Component {
       <Image style={styles.container} resizeMode="stretch" source={require('../images/rihannaBack.jpg')}>
       <Image style={styles.container} resizeMode="stretch" source={require('../images/backOverlay.png')}>
       <View style={styles.column}></View>
-      <View style={styles.column}>
-      <Animated.Image source={require('../images/spinner.png')} resizeMode="contain" style={{width:280, height:280, transform: [{rotate: interpolatedRotateAnimation}]}}>
+      <View style={{flex:2,}}>
+      <Animated.View  style={{ width:500, height:700, alignItems:'center', justifyContent:'center', transform: [{rotate: interpolatedRotateAnimation}]}}>
             
           <ListView
       dataSource = {this.state.dataSource}
-      style ={{height:500, width:500, marginLeft:-50 }}
-      contentContainerStyle = {{alignItems:'center', justifyContent:'center',width:250, height:200,}} 
+      style ={{height:400, width:400 }}
+      contentContainerStyle = {{alignItems:'center', justifyContent:'center',width:400, height:400,}} 
       renderRow = {(rowData) => this.eachNode(rowData)}
       />
 
-            </Animated.Image>
+            </Animated.View>
 
       </View>
       </Image>

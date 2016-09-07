@@ -20,6 +20,18 @@ import {
 var {height, width} = Dimensions.get('window');
 var hasAnimated = false
 
+var calender =[
+{name: "OCT", selected:false}, 
+{name: "SPET", selected:false}, 
+{name: "AUG", selected:false},
+{name: "JULY", selected:false}, 
+{name: "JUNE",  selected:false},
+{name: "MAY", selected:false}, 
+{name: "APR", selected:false}, 
+{name: "MAR", selected:false}, 
+{name: "FEB", selected:false}, 
+{name: "JAN", selected:false},
+];
 var music = [
 {
   name:"Diamonds",
@@ -74,14 +86,15 @@ var music = [
 ]
 
 var val = 10
-var rotateVal = 0;
+var rotateVal = -30;
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
 export default class Visualize extends Component {
   constructor(props){
     super(props)
     this.state = {
-      dataSource: ds.cloneWithRows(music)
+      dataSource: ds.cloneWithRows(music),
+      calender: ds.cloneWithRows(calender),
     }
   }
   componentWillMount() {
@@ -89,8 +102,7 @@ export default class Visualize extends Component {
   }
 
   componentDidMount() {
-    setInterval(() =>
-    {this.animation()}, 8000 )
+
   }
 
   animation(){
@@ -111,21 +123,28 @@ export default class Visualize extends Component {
     }
   }
 
+  calenderRow(x){
+    return(<View style={{flexDirection:'row', margin:5,}}>
+      <View style={{height:1, alignSelf:'center', width:40, margin:10, backgroundColor:'#036487'}} />
+      <Text style={{color:'#e3e3e3', fontSize:11, alignSelf:'center'}}>{x.name}</Text>
+      </View>)
+  }
+
   eachNode(x){
     val = val -10;
-    rotateVal = rotateVal + 32;
+    rotateVal = rotateVal + 30;
     var rotateValS = rotateVal + "deg";
     if(!x.selected){
-        return(<View style ={{position:'absolute', flexDirection:'row', top:325, left:110, width:140, height:50, transform: [{rotate: rotateValS}]}}>
+        return(<View style ={{position:'absolute', flexDirection:'row', top:320, left:160, width:160, height:50, transform: [{rotate: rotateValS}]}}>
           <View style ={{marginLeft:140, flexDirection:'row'}}>
-          <Text style ={{color:"#fff", transform: [{rotate: "181deg" }]}}>{x.name}</Text>
-          <Text style ={{color:"#00b6e9", transform: [{rotate: "181deg" }]}}>( {x.views} )</Text>
+          <Text style ={{color:"#fff", transform: [{rotate: "182deg" }]}}>{x.name}</Text>
+          <Text style ={{color:"#00b6e9", transform: [{rotate: "182deg" }]}}>  ( {x.views} )  </Text>
           </View>
        </View>)   }else{
-        return(<View style ={{position:'absolute', flexDirection:'row', top:350, left:110, width:140, height:50, transform: [{rotate: rotateValS}]}}>
+        return(<View style ={{position:'absolute', flexDirection:'row', top:310, left:160, width:160, height:50, transform: [{rotate: rotateValS}]}}>
           <View style ={{marginLeft:140, flexDirection:'row'}}>
-          <Text style ={{color:"#fff", fontWeight:'600', fontSize:20,  transform: [{rotate: "181deg" }]}}>{x.name}</Text>
-          <Text style ={{ fontWeight:'500', color:'#00b6e9', fontSize:20,transform: [{rotate: "181deg" }]}}>( {x.views} )</Text>
+          <Text style ={{color:"#fff", fontWeight:'600', fontSize:20,  transform: [{rotate: "180deg" }]}}>{x.name}</Text>
+          <Text style ={{ fontWeight:'500', color:'#00b6e9', fontSize:20,transform: [{rotate: "180deg" }]}}> ( {x.views} ) </Text>
           </View>
        </View>)   }
 
@@ -140,18 +159,33 @@ export default class Visualize extends Component {
     return (
       <Image style={styles.container} resizeMode="stretch" source={require('../images/rihannaBack.jpg')}>
       <Image style={styles.container} resizeMode="stretch" source={require('../images/backOverlay.png')}>
-      <View style={styles.column}></View>
+      <View style={styles.column}>
+      <Text style={styles.year}>
+      2012
+      </Text>
+          <ListView 
+      dataSource = {this.state.calender}
+      renderRow = {(rowData) => this.calenderRow(rowData)}/>
+      <Text style={styles.year}>
+      2013
+      </Text>
+      <ListView 
+      dataSource = {this.state.calender}
+      renderRow = {(rowData) => this.calenderRow(rowData)}/>
+      </View>
       <View style={{flex:2,}}>
+      <TouchableOpacity onPress = {() => this.animation()} >
       <Animated.View  style={{ width:500, height:700, alignItems:'center', justifyContent:'center', transform: [{rotate: interpolatedRotateAnimation}]}}>
             
           <ListView
       dataSource = {this.state.dataSource}
-      style ={{height:400, width:400 }}
+      style ={{height:400, width:500 }}
       contentContainerStyle = {{alignItems:'center', justifyContent:'center',width:400, height:400,}} 
       renderRow = {(rowData) => this.eachNode(rowData)}
       />
 
             </Animated.View>
+            </TouchableOpacity>
 
       </View>
       </Image>
@@ -166,6 +200,13 @@ const styles = StyleSheet.create({
     height:null,
     width:null,
     flexDirection:'row'
+  },
+  year:{
+    color:'#00c2fe',
+    fontWeight:'600',
+    fontSize:18,
+    margin: 10,
+    marginTop:30
   },
   column:{
     flex:1,

@@ -9,25 +9,82 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  TouchableOpacity,
   Image,
   ListView,
   View
 } from 'react-native';
 
-var convo = [
+var rihanna = require('../../images/rihanna.jpg')
+var kanye = require('../../images/kanye.jpg')
+var alicia = require('../../images/alicia.jpg')
+var pharell = require('../../images/pharell.jpg')
+var miley = require('../../images/miley.jpg')
+var geasy = require('../../images/geasy.jpg')
+
+
+var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+export default class ConvoTrans extends Component {
+  constructor(props){
+    super(props)
+
+    var convo = [
   {
-    name: "Alicia Keys",
+    name: this.props.name,
     date: "15 June",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed libero dictum erat lacinia tristique."
-  }
+    usernmae: this.props.username,
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed libero dictum erat lacinia tristique.",
+    image: this.props.image
+  },
+   {
+    name: "Rihanna",
+    date: "16 June",
+    usernmae: "@aRihanna",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed libero dictum erat lacinia tristique.",
+    image: rihanna
+  }, {
+    name: this.props.name,
+    date: "16 June",
+    usernmae: this.props.usernmae,
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed libero dictum erat lacinia tristique.",
+    image: this.props.image
+  },
+  {
+    name: "Rihanna",
+    date: "16 June",
+    usernmae: "@aRihanna",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed libero dictum erat lacinia tristique.",
+    image: rihanna
+  },
 ]
 
-export default class ConvoTrans extends Component {
+    
+        this.state = {
+      dataSource: ds.cloneWithRows(convo)
+    }
+  }
+
+  eachTweet(x){
+    return(
+      <TouchableOpacity style={{flex:1, height:130, padding:10, borderBottomWidth: 1, borderColor:'rgba(0,0,0,0.05)'}}>
+      <View style={{flexDirection:'row', alignItems:'center', flex:1}}>
+      <Image source={x.image} resizeMode='contain' style={{height:40, width:40, borderRadius:20, margin:5}} />
+      <View>
+      <Text style={{fontWeight:'700', fontSize:11, color:'#555'}}>{x.name}</Text>
+      <Text style={{fontWeight:'500', fontSize:11, color:'#555'}}>{x.usernmae}</Text>
+      </View>
+      </View>
+      <View style={{flexDirection:'row', flex:1}}>
+      <Text numberOfLines ={3} style = {{margin:5, flex:1, fontSize:11, color:'#555'}}>{x.message}</Text>
+      </View>
+      </TouchableOpacity>
+      )
+  }
   
   render() {
     return (
       <View style={styles.column} >
-      <Image source={require('../../images/alicia.jpg')} resizeMode="stretch" style={{flex:2, height:null, width:null}}>
+      <Image source={this.props.image} resizeMode="stretch" style={{flex:2, height:null, width:null}}>
 
       </Image>
       <View style={{flex:3, backgroundColor:'rgba(255,255,255,0.4)', borderLeftWidth:1, borderRightWidth:1, borderColor:'#e3e3e3',}}>
@@ -39,9 +96,11 @@ export default class ConvoTrans extends Component {
       15 june
       </Text>
       </View>
-      <Text style={styles.name}>ALICIA KEYS</Text>
-      <View style={styles.convo}>
-      </View>
+      <Text style={styles.name}>{this.props.name}</Text>
+      <ListView style={styles.convo} 
+      dataSource = {this.state.dataSource}
+      renderRow = {(rowData) => this.eachTweet(rowData)}
+      />
       </View>
 
       </View>
@@ -56,16 +115,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },convo:{
-
+    flex:1
   },
   column:{
     flex:1,
     width:155,
+    backgroundColor:'#fff',
+    marginLeft:-3,
+    shadowColor: "#000000",
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    }
+
 
   },
   name:{
-    fontSize:25,
-    margin:5,
+    fontSize:24,
+    margin:20,
     marginBottom:0,
     marginTop:0,
     fontWeight:'900',

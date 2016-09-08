@@ -22,6 +22,8 @@ var pharell = require('../../images/pharell.jpg')
 var miley = require('../../images/miley.jpg')
 var geasy = require('../../images/geasy.jpg')
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 export default class ConvoTrans extends Component {
@@ -84,8 +86,24 @@ export default class ConvoTrans extends Component {
   render() {
     return (
       <View style={styles.column} >
-      <Image source={this.props.image} resizeMode="stretch" style={{flex:2, height:null, width:null}}>
-
+      <Image source={this.props.image} resizeMode="stretch" style={{flex:2, height:null, width:null, flexDirection:'row', alignItems:'flex-end', justifyContent:'flex-end'}}>
+      <TouchableOpacity style={styles.icons}>
+      <Icon name="reply" color="#fff" style={{margin:5}} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.icons}>
+      <Icon name="repeat" color="#fff" style={{margin:5}} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.icons}>
+      <Icon name="move-to-inbox" color="#fff" style={{margin:5}} />
+      </TouchableOpacity>
+ 
+      <TouchableOpacity style={{ width:22,
+         height:22,
+         borderRadius:11,
+         margin:5,
+         backgroundColor:'#01addf'}}>
+      <Icon name="star" color="#fff" style={{margin:5}} />
+      </TouchableOpacity>
       </Image>
       <View style={{flex:3, backgroundColor:'rgba(255,255,255,0.4)', borderLeftWidth:1, borderRightWidth:1, borderColor:'#e3e3e3',}}>
       <View style={{flexDirection:'row', justifyContent:'space-between'}}>
@@ -131,6 +149,13 @@ const styles = StyleSheet.create({
     }
 
 
+  },
+  icons:{
+    width:22,
+    height:22,
+    borderRadius:11,
+    margin:5,
+    backgroundColor:'#c7c7c7'
   },
   name:{
     fontSize:24,

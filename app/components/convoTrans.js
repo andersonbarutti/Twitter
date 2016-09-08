@@ -18,6 +18,7 @@ import Nav from './widgets/nav'
 import SndNav from './widgets/sndNav'
 import EachConvo from './widgets/eachConvo'
 
+
 var rihanna = require('../images/rihanna.jpg')
 var kanye = require('../images/kanye.jpg')
 var alicia = require('../images/alicia.jpg')
@@ -34,10 +35,11 @@ export default class ConvoTrans extends Component {
       <SndNav />
       <View style = {{flex:1, flexDirection:'row'}}>
       <View style={styles.column} />
-      <ScrollView style ={{flex:1}} horizontal={true} >
+      <ScrollView style ={{flex:3}} horizontal={true} >
       <EachConvo username="@aliciakeys" name="ALICIA KEYS" image = {alicia} />
       <EachConvo username="@akanyewest" name="KANYE WEST" image = {kanye} />
       <EachConvo username="@apharell" name="PHARELL" image = {pharell} />
+      <EachConvo username="@geasy" name="GEASY" image = {geasy} />
       <EachConvo username="@amileycyrus" name="MILEY CYRUS" image = {miley} />
       </ScrollView>
       </View>
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   column:{
-    flex:1,
+    flex:2,
     width:null,
     height: null,
   },

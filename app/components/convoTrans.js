@@ -15,14 +15,21 @@ import {
 } from 'react-native';
 import Nav from './widgets/nav'
 import SndNav from './widgets/sndNav'
+import EachConvo from './widgets/eachConvo'
 
 export default class ConvoTrans extends Component {
+
   render() {
     return (
       <Image style={styles.column} source={require('../images/transBack.jpg')} resizeMode="contain" >
       <Nav />
       <SndNav />
+      <View style = {{flex:1, flexDirection:'row'}}>
       <View style={styles.column} />
+      <View style ={{flex:1}}>
+      <EachConvo />
+      </View>
+      </View>
       
       </Image>
     );

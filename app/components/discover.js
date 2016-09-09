@@ -28,7 +28,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // There should also be a listview here instead of the scrollview. I know I know
 var black = "rgba(0,0,0,0.6)";
-var blue = "rgba(0,185,242,0.5)"
+var blue = "rgba(0,185,242,0.6)"
 
 var julian = require('../images/discover/julian.png')
 var archer = require('../images/discover/archer.png')
@@ -166,7 +166,7 @@ export default class Discover extends Component {
       <View style={{flex:1, width:width-50, height:height-100}}>
       <Image source = {x.image} resizeMode='stretch' style={{position:"absolute", height:height-100, width:width-50, alignItems:'flex-end'}}>
       <View style={{backgroundColor:x.color, height:110, width:150, }}>
-        <View style={{flex:1, flexDirection:'row', justifyContent:'space-between',}}>
+        <View style={{flex:2, flexDirection:'row', justifyContent:'space-between', marginTop:5}}>
       <Icon name="location-on" size={21} color={locationColorX }/>
       <View style={{ flexDirection:'row'}}>
       <Icon name="reply" size={18} color={iconColorX} style={{margin:2}} />
@@ -176,16 +176,16 @@ export default class Discover extends Component {
         </View>
       <View style={{flex:1, flexDirection:'row'}}>
       </View>
-      <View style={{flex:4}}>
-      <Text style={{margin:10, color:"#fff", fontWeight:'700', fontSize:12}}>@{x.user}</Text>
-      <Text style={{margin:10, color:"#fff", fontWeight:'600', fontSize:11}}>{x.tweet}</Text>
+      <View style={{flex:5, justifyContent:'center'}}>
+      <Text style={{margin:5, color:"#fff", fontWeight:'700', fontSize:12}}>@{x.user}</Text>
+      <Text style={{margin:5, color:"#fff", fontWeight:'600', fontSize:11}}>{x.tweet}</Text>
 
       </View>
       </View>
       </Image>
       <Image source = {y.image} resizeMode='stretch' style={{position:"absolute", height:height-100, width:width-50, justifyContent:'flex-end'}}>
       <View style={{backgroundColor:y.color, height:110, width:150}}>
-      <View style={{flex:1, flexDirection:'row', justifyContent:'space-between',}}>
+      <View style={{flex:2, flexDirection:'row', justifyContent:'space-between', marginTop:5}}>
       <Icon name="location-on" size={21} color={locationColorY }/>
       <View style={{ flexDirection:'row'}}>
       <Icon name="reply" size={18} color={iconColorY} style={{margin:2}} />
@@ -193,9 +193,9 @@ export default class Discover extends Component {
       <Icon name="star" size={18} color="#fff" style={{margin:2}} />
         </View>
         </View>
-      <View style={{flex:4}}>
-      <Text style={{margin:10, color:"#fff", fontWeight:'700', fontSize:12}}>@{y.user}</Text>
-      <Text style={{margin:10, color:"#fff", fontWeight:'600', fontSize:11}}>{y.tweet}</Text>
+      <View style={{flex:5, justifyContent:'center'}}>
+      <Text style={{margin:5, color:"#fff", fontWeight:'700', fontSize:12}}>@{y.user}</Text>
+      <Text style={{margin:5, color:"#fff", fontWeight:'600', fontSize:11}}>{y.tweet}</Text>
 
       </View>
       </View>

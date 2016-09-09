@@ -81,7 +81,7 @@ var data =[
 
 {
   color:blue,
-  tweet:'Thanks for the car guys',
+  tweet:'@mercedes Thanks for the car you guys',
   image: casey,
     user: "caseyneistat",
   date: "june 5",
@@ -177,8 +177,8 @@ export default class Discover extends Component {
       <View style={{flex:1, flexDirection:'row'}}>
       </View>
       <View style={{flex:5, justifyContent:'center'}}>
-      <Text style={{margin:5, color:"#fff", fontWeight:'700', fontSize:12}}>@{x.user}</Text>
-      <Text style={{margin:5, color:"#fff", fontWeight:'600', fontSize:11}}>{x.tweet}</Text>
+      <Text style={{marginLeft:10, color:"#fff", fontWeight:'700', fontSize:12}}>@{x.user}</Text>
+      <Text style={{margin:10, color:"#fff", fontWeight:'600', fontSize:11}}>{x.tweet}</Text>
 
       </View>
       </View>
@@ -194,8 +194,8 @@ export default class Discover extends Component {
         </View>
         </View>
       <View style={{flex:5, justifyContent:'center'}}>
-      <Text style={{margin:5, color:"#fff", fontWeight:'700', fontSize:12}}>@{y.user}</Text>
-      <Text style={{margin:5, color:"#fff", fontWeight:'600', fontSize:11}}>{y.tweet}</Text>
+      <Text style={{marginLeft:10, color:"#fff", fontWeight:'700', fontSize:12}}>@{y.user}</Text>
+      <Text style={{margin:10, color:"#fff", fontWeight:'600', fontSize:11}}>{y.tweet}</Text>
 
       </View>
       </View>

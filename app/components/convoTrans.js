@@ -35,7 +35,13 @@ export default class ConvoTrans extends Component {
       <SndNav />
       <View style = {{flex:1, flexDirection:'row'}}>
       <View style={styles.column} />
-      <ScrollView style ={{flex:3}} horizontal={true} >
+      <ScrollView style ={{flex:3, backgroundColor:'#fff', shadowColor: "#000000",
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    }}} horizontal={true} >
       <EachConvo username="@aliciakeys" name="ALICIA KEYS" image = {alicia} />
       <EachConvo username="@akanyewest" name="KANYE WEST" image = {kanye} />
       <EachConvo username="@apharell" name="PHARELL" image = {pharell} />

@@ -204,6 +204,7 @@ export default class Discover extends Component {
       )
   }  
 
+// Done
   render() {
     return (
       <View style={{flex:1}}> 

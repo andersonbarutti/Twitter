@@ -44,6 +44,7 @@ var cali = require('../images/discover/californication.png')
 var data =[
 {
   color:black,
+  user: "projectX",
   tweet:'We justs want a half decent party',
   image: ironman,
   date: "june 5",
@@ -52,6 +53,7 @@ var data =[
 },
 {
   color:blue,
+    user: "childish",
   tweet:'Been grinding my whole life, Ni**a',
   image: childish ,
   date: "june 5",
@@ -62,6 +64,7 @@ var data =[
   color:black,
   tweet:'I want you to keep doubting. Lets see what happens.',
   image: gary,
+    user: "garyvee",
   date: "june 5",
   retweets: "23,535",
   favourites: "1,661"
@@ -70,6 +73,7 @@ var data =[
   color:blue,
   tweet:"Hahaha James Bond? No I'm not like James Bond",
   image: archer,
+    user: "archerfx",
   date: "june 5",
   retweets: "23,535",
   favourites: "1,661"
@@ -79,6 +83,7 @@ var data =[
   color:blue,
   tweet:'Thanks for the car guys',
   image: casey,
+    user: "caseyneistat",
   date: "june 5",
   retweets: "23,535",
   favourites: "1,661"
@@ -87,6 +92,7 @@ var data =[
   color:black,
   tweet:'Welcome to the new economy!',
   image: house,
+    user: "houseoflies",
   date: "june 5",
   retweets: "23,535",
   favourites: "1,661"
@@ -95,6 +101,7 @@ var data =[
   color:black,
   tweet:"We're a positive spin on child soldiers... sort of",
   image: jour,
+    user: "jourmungand",
   date: "june 5",
   retweets: "23,535",
   favourites: "1,661"
@@ -102,6 +109,7 @@ var data =[
 {
   color:blue,
   tweet:"I've got nothing to say",
+    user: "juliancasablancas",
   image: julian,
   date: "june 5",
   retweets: "23,535",
@@ -111,6 +119,7 @@ var data =[
   color:blue,
   tweet:"Every new begining is some other new begining's end",
   image: cali,
+    user: "californication",
   date: "june 5",
   retweets: "23,535",
   favourites: "1,661"
@@ -118,6 +127,7 @@ var data =[
   color:black,
   tweet:"We're just really good friends",
   image: couple,
+    user: "childish",
   date: "june 5",
   retweets: "23,535",
   favourites: "1,661"
@@ -166,7 +176,11 @@ export default class Discover extends Component {
         </View>
       <View style={{flex:1, flexDirection:'row'}}>
       </View>
-      <View style={{flex:4}}></View>
+      <View style={{flex:4}}>
+      <Text style={{margin:10, color:"#fff", fontWeight:'700', fontSize:12}}>@{x.user}</Text>
+      <Text style={{margin:10, color:"#fff", fontWeight:'600', fontSize:11}}>{x.tweet}</Text>
+
+      </View>
       </View>
       </Image>
       <Image source = {y.image} resizeMode='stretch' style={{position:"absolute", height:height-100, width:width-50, justifyContent:'flex-end'}}>
@@ -179,7 +193,11 @@ export default class Discover extends Component {
       <Icon name="star" size={18} color="#fff" style={{margin:2}} />
         </View>
         </View>
-      <View style={{flex:4}}></View>
+      <View style={{flex:4}}>
+      <Text style={{margin:10, color:"#fff", fontWeight:'700', fontSize:12}}>@{y.user}</Text>
+      <Text style={{margin:10, color:"#fff", fontWeight:'600', fontSize:11}}>{y.tweet}</Text>
+
+      </View>
       </View>
       </Image>
       </View>

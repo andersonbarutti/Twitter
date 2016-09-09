@@ -57,7 +57,7 @@ var data = [{
   "id": 4,
   "first_name": "Cynthia",
   "last_name": "Nichols",
-  "tweet": "Donec quis orci eget orci vehicula condimentum. Curabitur in libert. Nulla tempus.",
+  "tweet": "Donec quis orci eget orndimentum. Curabitur in libert. Nulla tempus.",
   "time": "3:36 AM",
   image: image4,
 }, {
@@ -71,7 +71,7 @@ var data = [{
   "id": 6,
   "first_name": "Ana",
   "last_name": "Porter",
-  "tweet": "Donec odio pien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",
+  "tweet": "Donec odit sapien arcu sed augue. Aliquam erat volutpat.",
   "time": "3:09 PM",
   image: image6
 }, {
@@ -135,10 +135,11 @@ export default class Discover extends Component {
       <View style={styles.container}>
       <Nav />
       <SndNav />
-      <View style={{flexDirection:'row', alignItems:'flex-end', margin:10}}>
-      <Text style={{fontWeight:'900', fontSize:20, color:'#333', }}>TWEETS</Text>
-      <Text style={{fontSize:15, color:'#01addf', fontWeight:'200', marginLeft:10}}>ALL</Text>
-      <Text style={{fontSize:15, fontWeight:'200'}}> / NO REPLIES</Text>
+      <View style={{flexDirection:'row', alignItems:'flex-end', padding:10, borderBottomWidth:1, borderColor:'#e7e7e7'}}>
+      <Text style={{fontWeight:'900', fontSize:20, color:'#333', marginBottom:-1 }}>TWEETS</Text>
+      <TouchableOpacity><Text style={{fontSize:14, color:'#01addf', fontWeight:'400', marginLeft:10}}>ALL</Text></TouchableOpacity>
+      <Text style={{fontSize:14, fontWeight:'400', color:'#888'}}>   /</Text>
+      <TouchableOpacity><Text style={{fontSize:14, fontWeight:'400', color:"#555"}}>   NO REPLIES</Text></TouchableOpacity>
       </View>
       <ListView 
       dataSource = {this.state.dataSource}

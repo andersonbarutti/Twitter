@@ -119,11 +119,11 @@ export default class Discover extends Component {
       <Image source = {x.image} resizeMode="contain" style ={{height:54, width:54, borderRadius:27, margin:10}} />
       <View style={{flex:1}}>
       <View style={{ flexDirection:'row', marginLeft:5, marginTop:5, alignItems:'center'}}>
-      <Text style={{fontWeight:'700', fontSize:12}}>{x.first_name} {x.last_name}</Text>
+      <Text style={{fontWeight:'600', fontSize:12}}>{x.first_name} {x.last_name}</Text>
       <Text style={{fontWeight:'500', fontSize:12}}> | @{x.first_name}</Text>
       </View>
       <View style={{ margin:5, marginRight:10,}}>
-      <Text style={{fontSize:12, color:'#666', fontWeight:'500'}}>{x.tweet}</Text>
+      <Text style={{fontSize:13, color:'#444', fontWeight:'400'}}>{x.tweet}</Text>
       </View>
       </View>
       </View>
@@ -135,10 +135,10 @@ export default class Discover extends Component {
       <View style={styles.container}>
       <Nav />
       <SndNav />
-      <View style={{flexDirection:'row'}}>
-      <Text style={{fontWeight:'900', fontSize:20, color:'#333'}}>TWEETS</Text>
-      <Text>ALL</Text>
-      <Text>NO REPLIES</Text>
+      <View style={{flexDirection:'row', alignItems:'flex-end', margin:10}}>
+      <Text style={{fontWeight:'900', fontSize:20, color:'#333', }}>TWEETS</Text>
+      <Text style={{fontSize:15, color:'#01addf', fontWeight:'200', marginLeft:10}}>ALL</Text>
+      <Text style={{fontSize:15, fontWeight:'200'}}> / NO REPLIES</Text>
       </View>
       <ListView 
       dataSource = {this.state.dataSource}

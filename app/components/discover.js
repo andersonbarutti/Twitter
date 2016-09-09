@@ -44,7 +44,7 @@ var cali = require('../images/discover/californication.png')
 var data =[
 {
   color:black,
-  tweet:'lets blow a hole in it',
+  tweet:'We justs want a half decent party',
   image: ironman,
   date: "june 5",
   retweets: "23,535",
@@ -59,14 +59,6 @@ var data =[
   favourites: "1,661"
 },
 {
-  color:blue,
-  tweet:"Hahaha James Bond? No I'm not like James Bond",
-  image: archer,
-  date: "june 5",
-  retweets: "23,535",
-  favourites: "1,661"
-},
-{
   color:black,
   tweet:'I want you to keep doubting. Lets see what happens.',
   image: gary,
@@ -74,6 +66,15 @@ var data =[
   retweets: "23,535",
   favourites: "1,661"
 },
+{
+  color:blue,
+  tweet:"Hahaha James Bond? No I'm not like James Bond",
+  image: archer,
+  date: "june 5",
+  retweets: "23,535",
+  favourites: "1,661"
+},
+
 {
   color:blue,
   tweet:'Thanks for the car guys',
@@ -156,7 +157,7 @@ export default class Discover extends Component {
       <Image source = {x.image} resizeMode='stretch' style={{position:"absolute", height:height-100, width:width-50, alignItems:'flex-end'}}>
       <View style={{backgroundColor:x.color, height:110, width:150, }}>
         <View style={{flex:1, flexDirection:'row', justifyContent:'space-between',}}>
-      <Icon name="location-on" size={22} color={locationColorX }/>
+      <Icon name="location-on" size={21} color={locationColorX }/>
       <View style={{ flexDirection:'row'}}>
       <Icon name="reply" size={18} color={iconColorX} style={{margin:2}} />
       <Icon name="repeat" size={18} color={iconColorX} style={{margin:2}} />
@@ -171,7 +172,7 @@ export default class Discover extends Component {
       <Image source = {y.image} resizeMode='stretch' style={{position:"absolute", height:height-100, width:width-50, justifyContent:'flex-end'}}>
       <View style={{backgroundColor:y.color, height:110, width:150}}>
       <View style={{flex:1, flexDirection:'row', justifyContent:'space-between',}}>
-      <Icon name="location-on" size={22} color={locationColorY }/>
+      <Icon name="location-on" size={21} color={locationColorY }/>
       <View style={{ flexDirection:'row'}}>
       <Icon name="reply" size={18} color={iconColorY} style={{margin:2}} />
       <Icon name="repeat" size={18} color={iconColorY} style={{margin:2}} />
@@ -191,8 +192,12 @@ export default class Discover extends Component {
       <Nav />
       <SndNav />
       <ScrollView horizontal ={true} style={styles.container}>
+      {this.eachTweet(data[4],data[5])}
      {this.eachTweet(data[0],data[1])}
      {this.eachTweet(data[2],data[3])}
+     {this.eachTweet(data[6],data[7])}
+     {this.eachTweet(data[8],data[9])}
+     
       </ScrollView>
       </View>
     );

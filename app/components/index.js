@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import Login from './login'
+import Home from './home'
 import Convo from './convo'
 import Gallery from './gallery'
 import ConvoTrans from './convoTrans'
@@ -73,6 +74,13 @@ export default class Index extends Component {
         navigator={navigator} />
         );
     }
+     if (routeId === 'home') {
+      return (
+        <Home
+        {...this.props} 
+        navigator={navigator} />
+        );
+    }
     if (routeId === 'visualize') {
       return (
         <Visualize
@@ -104,7 +112,7 @@ export default class Index extends Component {
      <Navigator
      style={{flex: 1}}
      ref={'NAV'}
-     initialRoute={{id: 'discover', name: 'discover'}}
+     initialRoute={{id: 'home', name: 'home'}}
      renderScene={this.renderScene.bind(this)}/>
         </View>
     )

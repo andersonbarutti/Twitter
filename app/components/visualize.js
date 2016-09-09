@@ -16,6 +16,8 @@ import {
   View,
   Animated
 } from 'react-native';
+import Nav from './widgets/nav'
+import SndNav from './widgets/sndNav'
 
 var {height, width} = Dimensions.get('window');
 var hasAnimated = false
@@ -124,10 +126,10 @@ export default class Visualize extends Component {
   }
 
   calenderRow(x){
-    return(<View style={{flexDirection:'row', margin:5,}}>
+    return(<TouchableOpacity style={{flexDirection:'row', margin:5,}}>
       <View style={{height:1, alignSelf:'center', width:40, margin:10, backgroundColor:'#036487'}} />
       <Text style={{color:'#e3e3e3', fontSize:11, alignSelf:'center'}}>{x.name}</Text>
-      </View>)
+      </TouchableOpacity>)
   }
 
   eachNode(x){
@@ -135,12 +137,12 @@ export default class Visualize extends Component {
     rotateVal = rotateVal + 30;
     var rotateValS = rotateVal + "deg";
     if(!x.selected){
-        return(<View style ={{position:'absolute', flexDirection:'row', top:320, left:160, width:160, height:50, transform: [{rotate: rotateValS}]}}>
+        return(<TouchableOpacity onPress={() => this.animation()} style ={{position:'absolute', flexDirection:'row', top:320, left:160, width:160, height:50, transform: [{rotate: rotateValS}]}}>
           <View style ={{marginLeft:140, flexDirection:'row'}}>
           <Text style ={{color:"#fff", transform: [{rotate: "182deg" }]}}>{x.name}</Text>
           <Text style ={{color:"#00b6e9", transform: [{rotate: "182deg" }]}}>  ( {x.views} )  </Text>
           </View>
-       </View>)   }else{
+       </TouchableOpacity>)   }else{
         return(<View style ={{position:'absolute', flexDirection:'row', top:310, left:160, width:160, height:50, transform: [{rotate: rotateValS}]}}>
           <View style ={{marginLeft:140, flexDirection:'row'}}>
           <Text style ={{color:"#fff", fontWeight:'600', fontSize:20,  transform: [{rotate: "180deg" }]}}>{x.name}</Text>
@@ -157,7 +159,9 @@ export default class Visualize extends Component {
     });
 
     return (
-      <Image style={styles.container} resizeMode="stretch" source={require('../images/rihannaBack.jpg')}>
+      <Image style={{flex:1, width:null, height:null}} resizeMode="stretch" source={require('../images/rihannaBack.jpg')}>
+      <Nav />
+      <SndNav /> 
       <Image style={styles.container} resizeMode="stretch" source={require('../images/backOverlay.png')}>
       <View style={styles.column}>
       <Text style={styles.year}>

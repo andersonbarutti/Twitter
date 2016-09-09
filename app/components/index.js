@@ -52,6 +52,12 @@ export default class Index extends Component {
         {...this.props} 
         navigator={navigator} />
         );
+    }if (routeId === 'discover') {
+      return (
+        <Discover
+        {...this.props} 
+        navigator={navigator} />
+        );
     }
     if (routeId === 'convoTrans') {
       return (
@@ -98,7 +104,7 @@ export default class Index extends Component {
      <Navigator
      style={{flex: 1}}
      ref={'NAV'}
-     initialRoute={{id: 'convoTrans', name: 'convoTrans'}}
+     initialRoute={{id: 'discover', name: 'discover'}}
      renderScene={this.renderScene.bind(this)}/>
         </View>
     )

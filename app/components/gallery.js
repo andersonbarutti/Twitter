@@ -78,7 +78,7 @@ var images = [{
 
 
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-export default class Discover extends Component {
+export default class Gallery extends Component {
   constructor(props){
     super(props)
 

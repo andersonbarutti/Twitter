@@ -19,6 +19,7 @@ import Discover from './discover'
 import Visualize from './visualize'
 import Pinned from './pinned'
 import Profile from './profile'
+import Chat from './chat'
 
 
 
@@ -88,6 +89,13 @@ export default class Index extends Component {
         navigator={navigator} />
         );
     }
+    if (routeId === 'chat') {
+      return (
+        <Chat
+        {...this.props} 
+        navigator={navigator} />
+        );
+    }
     if (routeId === 'pinned') {
       return (
         <Pinned
@@ -112,7 +120,7 @@ export default class Index extends Component {
      <Navigator
      style={{flex: 1}}
      ref={'NAV'}
-     initialRoute={{id: 'gallery', name: 'gallery'}}
+     initialRoute={{id: 'chat', name: 'chat'}}
      renderScene={this.renderScene.bind(this)}/>
         </View>
     )

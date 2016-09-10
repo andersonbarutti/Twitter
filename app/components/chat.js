@@ -9,8 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  ListView,
   Image,
+  ListView,
   Dimensions,
   TouchableOpacity,
   View
@@ -103,47 +103,54 @@ var data = [{
   "time": "11:22 AM",
   image: image10
 }];
+
+
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-export default class Discover extends Component {
-  constructor(props){
+export default class Chat extends Component {
+constructor(props){
     super(props)
     this.state = {
       dataSource: ds.cloneWithRows(data),
     }
   }
 
-  eachTweet(x){
+  eachMessage(x){
     return(
       <TouchableOpacity style={{width:width, height:90, borderBottomWidth:1, borderColor:'#e3e3e3'}}>
       <View style={{flex:1, flexDirection:'row', alignItems:'center'}}>
       <Image source = {x.image} resizeMode="contain" style ={{height:54, width:54, borderRadius:27, margin:10}} />
       <View style={{flex:1}}>
-      <View style={{ flexDirection:'row', marginLeft:5, marginTop:5, alignItems:'center'}}>
-      <Text style={{fontWeight:'600', fontSize:12}}>{x.first_name} {x.last_name}</Text>
+      <View style={{ flexDirection:'row', marginLeft:5, marginTop:5, alignItems:'center', justifyContent:'space-between'}}>
+      <View style={{ flexDirection:'row', alignItems:'center', flex:1}}>
+      <Text style={{fontWeight:'600', fontSize:12}}>{x.first_name}</Text>
       <Text style={{fontWeight:'500', fontSize:12}}> | @{x.first_name}</Text>
       </View>
-      <View style={{ margin:5, marginRight:10,}}>
-      <Text style={{fontSize:13, color:'#444', fontWeight:'400'}}>{x.tweet}</Text>
+      <Text style={{fontWeight:'500', fontSize:11, marginRight:10, color:'#666'}}>3:57 PM</Text>
+      </View>
+      <View style={{ margin:5, marginRight:30,}}>
+      <Text style={{fontSize:13, color:'#01addf', fontWeight:'500'}}>Lets Hangout Yo!</Text>
+      <Text numberOfLines ={1} style={{fontSize:13, color:'#333', fontWeight:'400'}}>{x.tweet}</Text>
       </View>
       </View>
       </View>
       </TouchableOpacity>
       )
   }
-  render() {
+ render() {
     return (
       <View style={styles.container}>
       <Nav {...this.props} />
       <SndNav {...this.props} />
-      <View style={{flexDirection:'row', alignItems:'flex-end', padding:10, borderBottomWidth:1, borderColor:'#e7e7e7'}}>
-      <Text style={{fontWeight:'900', fontSize:20, color:'#333', marginBottom:-1 }}>TWEETS</Text>
-      <TouchableOpacity><Text style={{fontSize:14, color:'#01addf', fontWeight:'400', marginLeft:10}}>ALL</Text></TouchableOpacity>
-      <Text style={{fontSize:14, fontWeight:'400', color:'#888'}}>   /</Text>
-      <TouchableOpacity><Text style={{fontSize:14, fontWeight:'400', color:"#555"}}>   NO REPLIES</Text></TouchableOpacity>
+      <View style={{flexDirection:'row', alignItems:'center', height:50, backgroundColor:'#000', justifyContent:'space-between'}}>
+      <View style={{flexDirection:'row', alignItems:'center',}}>
+      <Text style={{color:'#fff', fontSize:13, fontWeight:'700', margin:20}}>MY INBOX</Text>
+            <View style={{margin:10, marginTop:5, marginBottom:5, backgroundColor:"#01addf", borderRadius:2, alignItems:'center', justifyContent:'center'}}><Text style={{color:'#fff', margin:5, fontSize:10, fontWeight:'700'}}>3</Text></View>
+      </View>
+      <View style={{margin:10, backgroundColor:"#01addf", borderRadius:2, alignItems:'center', justifyContent:'center'}}><Text style={{color:'#fff', margin:5, fontSize:10, fontWeight:'700'}}>NEW</Text></View>
       </View>
       <ListView 
       dataSource = {this.state.dataSource}
-      renderRow = {(rowData) => this.eachTweet(rowData)}
+      renderRow = {(rowData) => this.eachMessage(rowData)}
       />
       </View>
     );

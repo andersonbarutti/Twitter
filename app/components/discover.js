@@ -208,8 +208,8 @@ export default class Discover extends Component {
   render() {
     return (
       <View style={{flex:1}}> 
-      <Nav />
-      <SndNav />
+      <Nav {...this.props}/>
+      <SndNav {...this.props}/>
       <ScrollView horizontal ={true} style={styles.container}>
       {this.eachTweet(data[4],data[5])}
      {this.eachTweet(data[0],data[1])}

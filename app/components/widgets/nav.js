@@ -20,7 +20,7 @@ export default class Nav extends Component {
   render() {
     return (
       <View style={{height:50, backgroundColor:'#01addf', justifyContent:'space-around', alignItems:'center', flexDirection:'row'}}>
-      <TouchableOpacity style={styles.row}>
+      <TouchableOpacity onPress ={() => this.props.navigator.replace({id:'home'})} style={styles.row}>
       <Icon name = "home" size={20} style={{margin:5, fontWeight:"600"}} color="#fff" />
       <Text style={{color:'#fff', fontSize:12, fontWeight:'800'}}>
       HOME
@@ -32,7 +32,7 @@ export default class Nav extends Component {
       CONNECT
       </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.row}>
+      <TouchableOpacity onPress ={() => this.props.navigator.replace({id:'discover'})} style={styles.row}>
       <Icon name = "search" size={20} style={{margin:5, fontWeight:"600"}} color="#fff" />
       <Text style={{color:'#fff', fontSize:12, fontWeight:'800'}}>
       DISCOVER

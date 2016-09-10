@@ -31,8 +31,8 @@ export default class ConvoTrans extends Component {
   render() {
     return (
       <Image style={styles.column} source={require('../images/transBack.jpg')} resizeMode="contain" >
-      <Nav />
-      <SndNav />
+          <Nav {...this.props} />
+      <SndNav {...this.props} />
       <View style = {{flex:1, flexDirection:'row'}}>
       <View style={styles.column} />
       <ScrollView style ={{flex:3, backgroundColor:'#fff', shadowColor: "#000000",

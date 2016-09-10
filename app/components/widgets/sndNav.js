@@ -32,19 +32,19 @@ export default class SndNav extends Component {
       <Text style={{color:'#fff', fontWeight:'900', fontSize:12, marginLeft:10}}>@RADDEVIANT</Text>
       </View>
       <ScrollView horizontal ={true} style={{flex:5}}>
-      <TouchableOpacity style={styles.row}>
-            <Text style={{color:'#fff', fontWeight:'900', fontSize:11, marginLeft:5}}>TALKING TO </Text>
+      <TouchableOpacity style={styles.row} onPress ={() => this.props.navigator.replace({id:"convoTrans"})}>
+            <Text style={{color:'#fff', fontWeight:'500', fontSize:11, marginLeft:5}}>TALKING TO </Text>
             <Text style ={{color:'#01addf', fontSize:11}}>({props.talking})</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.row}>
+      <TouchableOpacity style={styles.row} onPress ={() => this.props.navigator.replace({id:'visualize'})}>
             <Text style={{color:'#fff', fontWeight:'400', fontSize:11, marginLeft:5}}>PINNED TWEETS </Text>
             <Text style ={{color:'#01addf', fontSize:11}}> ({props.pinned})</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.row}>
+      <TouchableOpacity onPress ={() => this.props.navigator.replace({id:'gallery'})} style={styles.row}>
             <Text style={{color:'#fff', fontWeight:'400', fontSize:11, marginLeft:5}}>PHOTOS & VIDEOS </Text>
             <Text style ={{color:'#01addf', fontSize:11}}> ({props.media})</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.row}>
+      <TouchableOpacity style={styles.row} onPress ={() => this.props.navigator.replace({id:'chat'})}>
             <Text style={{color:'#fff', fontWeight:'400', fontSize:14, marginLeft:5}}>You have</Text>
             <Text style ={{color:'#01addf', fontSize:14}}> ({props.messages}) new</Text>
             <Text style={{color:'#fff', fontWeight:'400', fontSize:14, marginLeft:5}}>messages</Text>

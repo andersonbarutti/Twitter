@@ -104,15 +104,15 @@ export default class Visualize extends Component {
   }
 
   componentDidMount() {
-
+    this.animation()
   }
 
   animation(){
     if(!hasAnimated){
       hasAnimated = true
       Animated.timing(this._animatedValue, {
-            toValue: 250,
-            duration: 3000
+            toValue: 350,
+            duration: 38000
         }).start(); 
 
     }else{
@@ -160,8 +160,8 @@ export default class Visualize extends Component {
 
     return (
       <Image style={{flex:1, width:null, height:null}} resizeMode="stretch" source={require('../images/rihannaBack.jpg')}>
-      <Nav />
-      <SndNav /> 
+      <Nav {...this.props} />
+      <SndNav {...this.props} />
       <Image style={styles.container} resizeMode="stretch" source={require('../images/backOverlay.png')}>
       <View style={styles.column}>
       <Text style={styles.year}>
@@ -178,7 +178,6 @@ export default class Visualize extends Component {
       renderRow = {(rowData) => this.calenderRow(rowData)}/>
       </View>
       <View style={{flex:2,}}>
-      <TouchableOpacity onPress = {() => this.animation()} >
       <Animated.View  style={{ width:500, height:700, alignItems:'center', justifyContent:'center', transform: [{rotate: interpolatedRotateAnimation}]}}>
             
           <ListView
@@ -189,7 +188,6 @@ export default class Visualize extends Component {
       />
 
             </Animated.View>
-            </TouchableOpacity>
 
       </View>
       </Image>

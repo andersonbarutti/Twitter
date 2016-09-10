@@ -133,8 +133,8 @@ export default class Discover extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Nav />
-      <SndNav />
+      <Nav {...this.props} />
+      <SndNav {...this.props} />
       <View style={{flexDirection:'row', alignItems:'flex-end', padding:10, borderBottomWidth:1, borderColor:'#e7e7e7'}}>
       <Text style={{fontWeight:'900', fontSize:20, color:'#333', marginBottom:-1 }}>TWEETS</Text>
       <TouchableOpacity><Text style={{fontSize:14, color:'#01addf', fontWeight:'400', marginLeft:10}}>ALL</Text></TouchableOpacity>

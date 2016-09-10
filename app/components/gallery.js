@@ -13,6 +13,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  ScrollView,
   Image,
   ListView,
   Dimensions,
@@ -92,9 +93,9 @@ export default class Discover extends Component {
       <View style={{flex:2, flexDirection:'row', padding:20, paddingTop:0, paddingBottom:0, justifyContent:'space-between', alignItems:'center'}}>
       <Image source={require('../images/bird.png')} resizeMode="contain" style={{height:30, width:30}} />
       <View style={{flexDirection:'row', alignItems:'center'}}>
-      <Icon name="reply" size={18} color="#fff" />
-      <Icon name="repeat" size={18} color="#fff" />
-      <Icon name="star" size={18} color="#fff" />
+      <TouchableOpacity><Icon name="reply" size={18} color="#fff" style={{marginLeft:10}} /></TouchableOpacity>
+      <TouchableOpacity><Icon name="repeat" size={18} color="#fff" style={{marginLeft:10}} /></TouchableOpacity>
+      <TouchableOpacity><Icon name="star" size={18} color="#fff" style={{marginLeft:10}} /></TouchableOpacity>
       </View>
       </View>
       <View style={{flex:8, justifyContent:'space-between'}}>
@@ -115,14 +116,14 @@ export default class Discover extends Component {
     if(count % 2){
       count++;
         return(
-          <View style={{height:height-100, width:width-150}}>
+          <View style={{height:height-100, width:width-160}}>
           <Image source ={x.image} style ={{flex:1, width:null, height:null}} resizeMode="stretch" />
           {this.blueBlock(x)}
           </View>
           )}else{
           count++
           return(
-          <View style={{height:height-100, width:width-150}}>
+          <View style={{height:height-100, width:width-160}}>
           {this.blueBlock(x)}
           <Image source ={x.image} style ={{flex:1, width:null, height:null}} resizeMode="stretch" />
           
@@ -134,14 +135,22 @@ export default class Discover extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Nav />
-      <SndNav />
+      <Nav {...this.props} />
+      <SndNav {...this.props} />
+      <ScrollView>
       <ListView
       horizontal = {true}
       dataSource = {this.state.dataSource}
       renderRow = {(rowData) => this.eachBlock(rowData)}
       style = {{flex:1}}
        />
+       <ListView
+      horizontal = {true}
+      dataSource = {this.state.dataSource}
+      renderRow = {(rowData) => this.eachBlock(rowData)}
+      style = {{flex:1}}
+       />
+       </ScrollView>
       </View>
     );
   }
